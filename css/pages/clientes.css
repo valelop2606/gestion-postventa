@@ -1,0 +1,52 @@
+/* Contenedor de perfiles rápidos */
+.client-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Tarjeta de cliente individual */
+.client-item-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: box-shadow 0.2s;
+}
+
+.client-item-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Info de contacto dentro de la tarjeta */
+.client-contact-info {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.client-contact-info div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+/* Historial rápido o etiquetas */
+.client-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag-vip {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}

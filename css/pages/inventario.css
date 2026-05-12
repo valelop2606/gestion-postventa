@@ -1,0 +1,24 @@
+.stock-indicator {
+    height: 8px;
+    width: 100%;
+    background: var(--bg-light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.stock-bar {
+    height: 100%;
+    background: var(--success);
+}
+
+.stock-low {
+    background: var(--danger);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

@@ -1,0 +1,21 @@
+.register-container {
+    max-width: 500px; /* Un poco más ancho que el login */
+}
+
+.password-strength {
+    height: 4px;
+    width: 100%;
+    background: var(--bg-light);
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s, background 0.3s;
+}
+
+.strength-weak { width: 33%; background: var(--danger); }
+.strength-medium { width: 66%; background: var(--warning); }
+.strength-strong { width: 100%; background: var(--success); }

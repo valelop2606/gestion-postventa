@@ -1,0 +1,11 @@
+/* Específico para el rastreo de tickets/reclamos */
+.reclamo-tracking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reclamo-step-active {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}

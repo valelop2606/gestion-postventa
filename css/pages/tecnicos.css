@@ -1,0 +1,20 @@
+.tech-status-dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.status-online { background-color: var(--success); }
+.status-busy { background-color: var(--warning); }
+.status-offline { background-color: var(--text-muted); }
+
+.tech-skill-tag {
+    background: var(--bg-surface);
+    color: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin: 2px;
+}
