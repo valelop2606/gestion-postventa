@@ -1,0 +1,34 @@
+/* 1. CAPA BASE */
+@import url('base/reset.css');
+@import url('base/variables.css');
+@import url('base/typography.css');
+@import url('base/global.css');
+
+/* 2. COMPONENTES */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/forms.css');
+@import url('components/tables.css');
+@import url('components/badges.css');
+@import url('components/navbar.css');
+@import url('components/sidebar.css');
+@import url('components/modals.css');
+@import url('components/alerts.css');
+
+/* 3. LAYOUTS */
+@import url('layouts/dashboard.css');
+@import url('layouts/auth.css');
+@import url('layouts/cliente.css');
+
+/* 4. PAGES */
+@import url('pages/login.css');
+@import url('pages/register.css');
+@import url('pages/dashboard.css');
+@import url('pages/reclamos.css');
+@import url('pages/productos.css');
+@import url('pages/inventario.css');
+@import url('pages/tecnicos.css');
+@import url('pages/clientes.css');
+@import url('pages/perfil.css');
+@import url('pages/mis-reclamos.css');
+@import url('pages/mis-productos.css');
