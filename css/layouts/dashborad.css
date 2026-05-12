@@ -1,0 +1,41 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 260px 1fr; /* Sidebar fijo + resto para contenido */
+    grid-template-rows: 64px 1fr;    /* Navbar + área de trabajo */
+    grid-template-areas: 
+        "sidebar navbar"
+        "sidebar main";
+    min-height: 100vh;
+}
+
+.layout-sidebar {
+    grid-area: sidebar;
+    background-color: var(--primary-color);
+}
+
+.layout-navbar {
+    grid-area: navbar;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.layout-main {
+    grid-area: main;
+    padding: 2rem;
+    background-color: var(--bg-light);
+    overflow-y: auto;
+}
+
+/* Responsive: en móviles el sidebar se oculta o colapsa */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "navbar"
+            "main";
+    }
+    .layout-sidebar {
+        display: none; /* O puedes usar una clase para mostrarlo como overlay */
+    }
+}

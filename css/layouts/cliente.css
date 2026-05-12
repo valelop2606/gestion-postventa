@@ -1,0 +1,25 @@
+.cliente-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.cliente-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cliente-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.cliente-footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
