@@ -1,0 +1,30 @@
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-item {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background 0.3s;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar-item:hover, .sidebar-item.active {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.sidebar-item i {
+    font-size: 1.25rem;
+}

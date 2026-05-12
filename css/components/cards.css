@@ -1,0 +1,28 @@
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    padding: 1.25rem;
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.card-body {
+    padding: 1.25rem;
+    flex: 1;
+}
+
+.card-footer {
+    padding: 1rem 1.25rem;
+    background-color: #f8fafc;
+    border-top: 1px solid var(--border-color);
+}
