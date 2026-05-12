@@ -1,0 +1,30 @@
+:root {
+    /* Colores Principales */
+    --primary-color: #00608B;
+    --primary-hover: #0092BA;
+    --secondary-color: #66C9D0;
+    
+    /* Colores de Estado */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    /* Neutros */
+    --bg-ligth: #E3ECEE;
+    --bg-surface: #A0C5CF;
+    --text-main: #1a2a33;
+    --text-muted: #5a717d;
+    --border-color: #c4d6dc;
+
+    /* Tipografía */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-size-base: 16px;
+
+    /* Spacing y Bordes */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+}

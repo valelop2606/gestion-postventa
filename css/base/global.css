@@ -1,0 +1,32 @@
+body {
+    background-color: var(--background);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/* Clases Utilitarias Rápidas */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+
+/* Estilo base para links globales */
+.link {
+    color: var(--primary-color);
+    transition: color 0.2s;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
