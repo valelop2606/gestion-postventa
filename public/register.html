@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cliente - Gestión Postventa</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="auth-layout">
+        <div class="auth-card register-container">
+            
+            <div class="login-header">
+                <h1>Crear Cuenta</h1>
+            </div>
+
+            <form action="../php/register.php" method="POST">
+                
+                <div class="form-group">
+                    <label class="label" for="correo">Correo Electrónico *</label>
+                    <input type="email" id="correo" name="correo" class="input" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="contrasena">Contraseña *</label>
+                    <input type="password" id="contrasena" name="contrasena" class="input" placeholder="Mínimo 8 caracteres" required>
+                    <div class="password-strength">
+                        <div class="strength-bar strength-strong"></div>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
+
+                <div class="form-group">
+                    <label class="label" for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" class="input" placeholder="Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="telefono">Teléfono *</label>
+                    <input type="text" id="telefono" name="telefono" class="input" placeholder="+591 70000000" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group">
+                        <label class="label" for="ciudad">Ciudad *</label>
+                        <input type="text" id="ciudad" name="ciudad" class="input" placeholder="La Paz">
+                    </div>
+                    <div class="form-group">
+                        <label class="label" for="pais">País *</label>
+                        <input type="text" id="pais" name="pais" class="input" placeholder="Bolivia">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="direccion">Dirección Domiciliaria *</label>
+                    <input type="text" id="direccion" name="direccion" class="input" placeholder="Av. Siempre Viva #123">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Crear mi Cuenta
+                </button>
+                
+            </form>
+
+            <div class="login-footer-links">
+                <a href="login.html" class="link">¿Ya tienes cuenta? Inicia sesión</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

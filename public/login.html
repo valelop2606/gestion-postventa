@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Gestión Postventa</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="auth-layout">
+        <div class="auth-card">
+            
+            <div class="login-header">
+                <h1>Bienvenido</h1>
+            </div>
+
+            <?php if (isset($_GET['error'])): ?>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Correo o contraseña incorrectos.
+                </div>
+            <?php endif; ?>
+
+            <form action="../php/login.php" method="POST">
+                
+                <div class="form-group">
+                    <label class="label" for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" class="input" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" class="input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Iniciar Sesión
+                </button>
+                
+            </form>
+
+            <div class="login-footer-links">
+                <a href="register.html" class="link">¿No tienes cuenta? Regístrate aquí</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

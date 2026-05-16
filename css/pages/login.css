@@ -4,7 +4,7 @@
 }
 
 .login-header h1 {
-    color: var(--primary-color);
+    color: var(--bg-ligth);
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
 }
@@ -17,6 +17,6 @@
 }
 
 .login-footer-links a {
-    color: var(--secondary-color);
+    color: var(--bg-ligth);
     font-weight: 500;
 }
