@@ -141,25 +141,19 @@ README.md
 
 ### Login
 
-## Login
 
 ![Login](assets/screenshots/login.png)
 
 ### Dashboard
 
-## Dashboard
-
 ![Dashboard](assets/screenshots/dashboard.png)
 
 ### Product Management
 
-## Product Management
 
 ![Products](assets/screenshots/productos.png)
 
 ### Claims Management
-
-## Product Management
 
 ![Products](assets/screenshots/reclamos.png)
 
