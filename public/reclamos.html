@@ -46,6 +46,7 @@
                                     <th>Estado</th>
                                     <th>Fecha</th>
                                     <th>Técnico</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,6 +58,7 @@
                                         <td><?= htmlspecialchars(estadoTexto($reclamo['estado'] ?? 'pendiente')) ?></td>
                                         <td><?= htmlspecialchars($reclamo['fecha_recepcion'] ?? '-') ?></td>
                                         <td><?= htmlspecialchars($reclamo['tecnico'] ?? 'Sin asignar') ?></td>
+                                        <td><a href="../php/reclamo-detalle.php?id=<?= (int) $reclamo['id_reclamo'] ?>" class="btn btn-primary">Ver detalle</a></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
