@@ -1,23 +1,67 @@
+/* --- SIDEBAR (Overlay) --- */
 .sidebar {
-    width: 260px;
+    width: var(--sidebar-width);
     height: 100vh;
     background-color: var(--primary-color);
     color: var(--white);
     display: flex;
     flex-direction: column;
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1100;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+.dashboard-container {
+    padding-top: 0;
+}
+
+.layout-navbar {
+    padding-left: 4.5rem;
+    margin-left: 0;
+}
+
+@media (max-width: 768px) {
+    .layout-navbar {
+        padding-left: 3.5rem;
+    }
+}
+
+/* --- ÍTEMS DEL MENÚ --- */
 .sidebar-item {
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    transition: background 0.3s;
-    cursor: pointer;
+    text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
+    transition: background 0.3s;
 }
 
 .sidebar-item:hover, .sidebar-item.active {
@@ -25,6 +69,51 @@
     color: var(--white);
 }
 
-.sidebar-item i {
-    font-size: 1.25rem;
+/* --- BOTONES DE CONTROL --- */
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1200;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    text-align: right;
+    display: block;
+    width: 100%;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.dashboard-container {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+    transition: none;
+}
+
+/* Estilos de tus tarjetas de estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis productos</title>
+    <title>Panel del cliente</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -13,8 +13,8 @@
     <aside class="sidebar" id="sidebar" aria-label="Menú lateral">
         <button id="close-btn" class="close-btn" aria-label="Cerrar menú">✕</button>
         <nav class="sidebar-menu">
-            <a href="../php/dashboard-cliente.php" class="sidebar-item">🏠 Dashboard</a>
-            <a href="../php/mis-productos.php" class="sidebar-item active">📦 Mis productos</a>
+            <a href="../php/dashboard-cliente.php" class="sidebar-item active">🏠 Dashboard</a>
+            <a href="../php/mis-productos.php" class="sidebar-item">📦 Mis productos</a>
             <a href="../php/mis-reclamos.php" class="sidebar-item">⚠️ Mis reclamos</a>
             <a href="../php/logout.php" class="sidebar-item">🔒 Cerrar sesión</a>
         </nav>
@@ -22,19 +22,20 @@
 
     <div class="dashboard-container">
         <nav class="layout-navbar navbar">
-            <div class="navbar-brand">Mis productos</div>
+            <div class="navbar-brand">Panel del cliente</div>
             <div class="navbar-nav">
+                <span class="text-muted">Bienvenido, <?= htmlspecialchars($_SESSION['nombre_cliente'] ?? $_SESSION['correo'] ?? 'cliente') ?></span>
                 <a href="../php/logout.php" class="btn btn-outline">Cerrar sesión</a>
             </div>
         </nav>
 
         <main class="layout-main">
-            <?php if ($mensaje): ?>
-                <div class="alert alert-info"><?= htmlspecialchars($mensaje) ?></div>
+            <?php if ($errorMessage): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($errorMessage) ?></div>
             <?php endif; ?>
 
             <section class="card">
-                <div class="card-header">Productos registrados</div>
+                <div class="card-header">Mis productos</div>
                 <div class="card-body">
                     <?php if ($productos): ?>
                         <div class="productos-user-grid">
@@ -57,34 +58,25 @@
             </section>
 
             <section class="card">
-                <div class="card-header">Registrar un producto</div>
+                <div class="card-header">Mis reclamos</div>
                 <div class="card-body">
-                    <form method="POST" class="form-grid">
-                        <div class="form-group">
-                            <label class="label" for="producto_catalogo">Producto</label>
-                            <select id="producto_catalogo" name="producto_catalogo" class="input" required>
-                                <option value="">Selecciona un producto</option>
-                                <?php foreach ($catalogoProductos as $producto): ?>
-                                    <option value="<?= (int) $producto['id_producto_catalogo'] ?>"><?= htmlspecialchars($producto['nombre']) ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                    <?php if ($reclamos): ?>
+                        <div class="reclamo-tracking-list">
+                            <?php foreach ($reclamos as $reclamo): ?>
+                                <article class="card">
+                                    <div class="card-body">
+                                        <h3><a href="../php/mis-reclamo-detalle.php?id=<?= (int) $reclamo['id_reclamo'] ?>"><?= htmlspecialchars($reclamo['producto']) ?></a></h3>
+                                        <p>Estado: <?= htmlspecialchars(estadoTexto($reclamo['estado'])) ?></p>
+                                        <p>Fecha: <?= htmlspecialchars($reclamo['fecha_recepcion']) ?></p>
+                                        <p><?= htmlspecialchars($reclamo['descripcion_problema']) ?></p>
+                                        <a href="../php/mis-reclamo-detalle.php?id=<?= (int) $reclamo['id_reclamo'] ?>" class="btn btn-primary">Ver detalle</a>
+                                    </div>
+                                </article>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="form-group">
-                            <label class="label" for="fecha_compra">Fecha de compra</label>
-                            <input type="date" id="fecha_compra" name="fecha_compra" class="input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="label" for="fecha_fin_garantia">Fecha fin de garantía</label>
-                            <input type="date" id="fecha_fin_garantia" name="fecha_fin_garantia" class="input">
-                        </div>
-                        <div class="form-group">
-                            <label class="label" for="numero_factura">Número de factura</label>
-                            <input type="text" id="numero_factura" name="numero_factura" class="input" placeholder="Factura / pedido">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Registrar producto</button>
-                        </div>
-                    </form>
+                    <?php else: ?>
+                        <p>No tienes reclamos registrados aún.</p>
+                    <?php endif; ?>
                 </div>
             </section>
         </main>

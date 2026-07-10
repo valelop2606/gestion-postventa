@@ -15,6 +15,12 @@
                 <h1>Crear Cuenta</h1>
             </div>
 
+            <?php if (!empty($errorMessage)): ?>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> <?= htmlspecialchars($errorMessage) ?>
+                </div>
+            <?php endif; ?>
+
             <form action="../php/register.php" method="POST">
                 
                 <div class="form-group">
@@ -65,7 +71,7 @@
             </form>
 
             <div class="login-footer-links">
-                <a href="login.html" class="link">¿Ya tienes cuenta? Inicia sesión</a>
+                <a href="../php/login.php" class="link">¿Ya tienes cuenta? Inicia sesión</a>
             </div>
 
         </div>

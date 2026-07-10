@@ -15,9 +15,9 @@
                 <h1>Bienvenido</h1>
             </div>
 
-            <?php if (isset($_GET['error'])): ?>
+            <?php if ($errorMessage): ?>
                 <div class="alert alert-danger">
-                    <strong>Error:</strong> Correo o contraseña incorrectos.
+                    <strong>Error:</strong> <?= htmlspecialchars($errorMessage) ?>
                 </div>
             <?php endif; ?>
 
@@ -40,7 +40,7 @@
             </form>
 
             <div class="login-footer-links">
-                <a href="register.html" class="link">¿No tienes cuenta? Regístrate aquí</a>
+                <a href="../php/register.php" class="link">¿No tienes cuenta? Regístrate aquí</a>
             </div>
 
         </div>

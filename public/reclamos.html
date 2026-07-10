@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclamos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button id="toggle-btn" class="toggle-btn" aria-label="Abrir menú">☰</button>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Menú lateral">
+        <button id="close-btn" class="close-btn" aria-label="Cerrar menú">✕</button>
+        <nav class="sidebar-menu">
+            <a href="../php/admin-dashboard.php" class="sidebar-item">🏠 Dashboard</a>
+            <a href="../php/tecnicos.php" class="sidebar-item">👨‍🔧 Técnicos</a>
+            <a href="../php/productos.php" class="sidebar-item">📦 Productos</a>
+            <a href="../php/reclamos.php" class="sidebar-item active">⚠️ Reclamos</a>
+            <a href="../php/logout.php" class="sidebar-item">🔒 Cerrar sesión</a>
+        </nav>
+    </aside>
+
+    <div class="dashboard-container">
+        <nav class="layout-navbar navbar">
+            <div class="navbar-brand">Reclamos</div>
+            <div class="navbar-nav">
+                <a href="../php/logout.php" class="btn btn-outline">Cerrar sesión</a>
+            </div>
+        </nav>
+
+        <main class="layout-main">
+            <?php if ($errorMessage): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($errorMessage) ?></div>
+            <?php endif; ?>
+            <section class="card">
+                <div class="card-header">Listado de reclamos</div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Cliente</th>
+                                    <th>Producto</th>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                    <th>Técnico</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($reclamos as $reclamo): ?>
+                                    <tr>
+                                        <td><a href="reclamo-detalle.php?id=<?= (int) $reclamo['id_reclamo'] ?>"><?= (int) $reclamo['id_reclamo'] ?></a></td>
+                                        <td><?= htmlspecialchars($reclamo['cliente'] ?? 'Sin cliente') ?></td>
+                                        <td><?= htmlspecialchars($reclamo['producto'] ?? 'Sin producto') ?></td>
+                                        <td><?= htmlspecialchars(estadoTexto($reclamo['estado'] ?? 'pendiente')) ?></td>
+                                        <td><?= htmlspecialchars($reclamo['fecha_recepcion'] ?? '-') ?></td>
+                                        <td><?= htmlspecialchars($reclamo['tecnico'] ?? 'Sin asignar') ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/hamburguer-menu.js"></script>
+</body>
+</html>

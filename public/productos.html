@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button id="toggle-btn" class="toggle-btn" aria-label="Abrir menú">☰</button>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Menú lateral">
+        <button id="close-btn" class="close-btn" aria-label="Cerrar menú">✕</button>
+        <nav class="sidebar-menu">
+            <a href="../php/admin-dashboard.php" class="sidebar-item">🏠 Dashboard</a>
+            <a href="../php/tecnicos.php" class="sidebar-item">👨‍🔧 Técnicos</a>
+            <a href="../php/productos.php" class="sidebar-item active">📦 Productos</a>
+            <a href="../php/reclamos.php" class="sidebar-item">⚠️ Reclamos</a>
+            <a href="../php/logout.php" class="sidebar-item">🔒 Cerrar sesión</a>
+        </nav>
+    </aside>
+
+    <div class="dashboard-container">
+        <nav class="layout-navbar navbar">
+            <div class="navbar-brand">Productos</div>
+            <div class="navbar-nav">
+                <a href="../php/logout.php" class="btn btn-outline">Cerrar sesión</a>
+            </div>
+        </nav>
+
+        <main class="layout-main">
+            <?php if ($errorMessage): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($errorMessage) ?></div>
+            <?php endif; ?>
+            <section class="card">
+                <div class="card-header">Catálogo de productos</div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($productos as $producto): ?>
+                                    <tr>
+                                        <td><a href="../php/producto-detalle.php?id=<?= (int) $producto['id_producto_catalogo'] ?>"><?= htmlspecialchars($producto['nombre']) ?></a></td>
+                                        <td><?= htmlspecialchars($producto['codigo_producto']) ?></td>
+                                        <td><?= htmlspecialchars($producto['descripcion'] ?? '-') ?></td>
+                                        <td><a href="../php/producto-detalle.php?id=<?= (int) $producto['id_producto_catalogo'] ?>" class="btn btn-primary">Ver detalle</a></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/hamburguer-menu.js"></script>
+</body>
+</html>

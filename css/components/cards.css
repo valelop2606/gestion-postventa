@@ -26,3 +26,15 @@
     background-color: #f8fafc;
     border-top: 1px solid var(--border-color);
 }
+
+/* Estilos para los números grandes en el Dashboard */
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Colores de estado para los números */
+.text-danger { color: var(--danger); }
+.text-success { color: var(--success); }
+.text-primary { color: var(--primary-color); }
+.text-info { color: var(--info); }
