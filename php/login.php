@@ -5,11 +5,9 @@ require_once __DIR__ . '/conexion.php';
 require_once __DIR__ . '/render_view.php';
 
 function passwordMatches(string $plainPassword, string $storedPassword): bool {
-    if (password_verify($plainPassword, $storedPassword)) {
-        return true;
-    }
-
-    return hash_equals($storedPassword, $plainPassword);
+    // Only hashed passwords are accepted. Legacy plaintext rows must be migrated
+    // with `php scripts/hash-legacy-passwords.php`.
+    return password_verify($plainPassword, $storedPassword);
 }
 
 $errorMessage = null;
@@ -23,6 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($usuario && passwordMatches($contrasena, (string) $usuario['contrasena'])) {
+        session_regenerate_id(true);
+
+        if (password_needs_rehash((string) $usuario['contrasena'], PASSWORD_DEFAULT)) {
+            $rehash = $conexion->prepare('UPDATE usuario SET contrasena = :h WHERE id_usuario = :id');
+            $rehash->execute(['h' => password_hash($contrasena, PASSWORD_DEFAULT), 'id' => $usuario['id_usuario']]);
+        }
+
         $_SESSION['id_usuario'] = (int) $usuario['id_usuario'];
         $_SESSION['rol'] = $usuario['rol'];
         $_SESSION['correo'] = $usuario['correo'];
